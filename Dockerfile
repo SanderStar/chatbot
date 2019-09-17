@@ -1,4 +1,4 @@
-FROM python:arm64/3.7.4-slim-stretch
+FROM python:arm32/3.7.4-slim-stretch
 
 ADD chatbot.py /
 
