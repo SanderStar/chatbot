@@ -1,9 +1,13 @@
 FROM arm32v7/python:3.7.4-slim-stretch
 
-ADD requirements.txt /
+# Set the working directory to /app
+WORKDIR /app
 
-ADD chatbot.py /
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-RUN pip install -r requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-CMD [ "python", "./chatbot.py" ]
+# Run app when the container launches
+CMD ["python", "chatbot.py"]
